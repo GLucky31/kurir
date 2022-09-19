@@ -4,5 +4,5 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <meta charset="utf-8">
     <title>MYSTBOX</title>
-    <link rel="stylesheet" href="style.css"></head>
+    <link rel="stylesheet" href="css/style.css"></head>
 <body>
