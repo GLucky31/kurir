@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <meta charset="utf-8">
     <title>MYSTBOX</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
      <div id="background">
@@ -19,7 +19,7 @@
                     <input class="input" type="text" name="Phone" placeholder="Phone" required="required">
                     <input class="input" type="password" name="password" placeholder="Password" required="required">
                     <input class="input" type="password" name="password2" placeholder="Confirm Password" required="required">
-                    <p>Registered user?</p><a href="psw.html">Log in</a>
+                    <p>Registered user?</p><a href="login.php">Log in</a>
                     <div>
                     <button type="submit" class="button">Register</button>
                     </div>

@@ -1,0 +1,21 @@
+body, html{
+    background-color: #5b109c;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container{
+     margin-top: 35px;
+}
+.btn{
+    margin-top: 10px;
+}
+.form-group-map{
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 1px 1px;
+    font-size: 16px;
+}
