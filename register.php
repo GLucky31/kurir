@@ -15,11 +15,11 @@
                 <form action="user_insert.php" method="post">
                     <input class="input" type="text" name="username" placeholder="Name" required="required">
                     <input class="input" type="text" name="email" placeholder="E-mail" required="required">
-                    <input class="input" type="text" name="Phone" placeholder="Phone" required="required">
-                    <input class="input" type="password" name="password" placeholder="Password" required="required">
+                    <input class="input" type="text" name="phone" placeholder="Phone" required="required">
+                    <input class="input" type="password" name="password1" placeholder="Password" required="required">
                     <input class="input" type="password" name="password2" placeholder="Confirm Password" required="required">
-                    <input class="input" type="radio" name="type[]" value="1">user
-                    <input class="input" type="radio" name="type[]" value="2">kurir
+                    <input class="input" type="radio" name="type" value="1">user
+                    <input class="input" type="radio" name="type" value="2">kurir
                     <p>Registered user?</p><a href="login.php">Log in</a>
                     <div>
                     <button type="submit" class="button">Register</button>
