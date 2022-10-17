@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <meta charset="utf-8">
     <title>MYSTBOX</title>
@@ -18,8 +18,11 @@
                     <input class="input" type="text" name="phone" placeholder="Phone" required="required">
                     <input class="input" type="password" name="password1" placeholder="Password" required="required">
                     <input class="input" type="password" name="password2" placeholder="Confirm Password" required="required">
-                    <input class="input" type="radio" name="type" value="1">user
-                    <input class="input" type="radio" name="type" value="2">kurir
+                    <label for="type">Choose your account type:</label>
+                        <select name="type" id="type" class="select">
+                            <option value="1">User</option>
+                            <option value="2">Kurir</option>
+                        </select>
                     <p>Registered user?</p><a href="login.php">Log in</a>
                     <div>
                     <button type="submit" class="button">Register</button>
