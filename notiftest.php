@@ -1,4 +1,4 @@
-<?php 
+<?php include 'header.php';
 $s=1;
 if($s==1)
 {echo "<script type='text/javascript'>
@@ -18,5 +18,5 @@ else{
       });",
 "</script>"
 ;
-}
+} include "footer.php";
 ?>
