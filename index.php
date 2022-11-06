@@ -69,6 +69,11 @@ echo "</div>
     </div>";
 }
 else{
+    $query= "SELECT * FROM kurirs WHERE kurir_id=?";
+    $stmt=$pdo->prepare($query);
+    $stmt->execute([$_SESSION['kurir_id']]);
+    $kurir=$stmt->fetch();
+    echo "<div class='container'><div class='row'><div class='col-md-6 offset-md-3'><h1>".$kurir['points']." points</h1></div></div></div>";
     echo "<div><a class='btn' href='logout.php'>Logout</a></div>
     <div class='container scroll'>
     <div><h3>Available tasks</h3></div>";
@@ -97,30 +102,29 @@ echo "</div>
 <div class='container'>
 <div><h3>Current task:</h3></div>
 <div>";
-$query="SELECT * FROM tasks WHERE kurir_id=?";
+$query="SELECT * FROM tasks WHERE kurir_id=? AND date=?";
 
 $stmt=$pdo -> prepare($query);
-$stmt->execute([$_SESSION['kurir_id']]);
+$stmt->execute([$_SESSION['kurir_id'],date("Y-m-d")]);
 $result=$stmt->fetchAll();
 $count=$stmt->rowCount();
 if($count==0)
 {
     echo "<div class='card'>
     <div class='card-body'>
-        <h5 class='card-title'>You don't have any tasks</h5>
+        <h5 class='card-title'>You don't have any tasks today</h5>
     </div>
 
     ";
 }
 else{
+    $loc= 'https://www.google.com/maps/dir/';
     foreach($result as $row)
     {
-        
-$loc=$row['Location'];
-$nl= str_replace(" ","%20","$loc");
 
-echo "<div class='mapouter'><div class='gmap_canvas'><iframe width='600' height='500' id='gmap_canvas' src='https://maps.google.com/maps?q=".$nl."&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe><a href='https://fmovies-online.net'></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href='https://www.embedgooglemap.net'>google iframe map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>";
-        echo "<div class='card'>
+$nl= str_replace(" ","+","$row['Location']");
+$loc=$loc.$nl."/";
+   echo "<div class='card'>
         <div class='card-body'>
             <h5 class='card-title'>Task description: ".$row['Task_description']."</h5>
             <p class='card-text'>Location: ".$row['Location']."</p>
@@ -131,7 +135,7 @@ echo "<div class='mapouter'><div class='gmap_canvas'><iframe width='600' height=
             ";
     }
 }
-
+echo "<div class='mapouter'><div class='gmap_canvas'><a href=".$loc.">Map</a></iframe></div></div>";
 echo "</div>
 </div>";
 }
