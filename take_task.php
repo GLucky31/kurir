@@ -10,4 +10,4 @@ $stmt->execute([$kid]);
     $query="UPDATE tasks SET kurir_id=? WHERE task_id=?";
     $stmt=$pdo->prepare($query);
     $stmt->execute([$kid,$tid]);
-    header("Location: kurir.php");
+    header("Location: index.php");

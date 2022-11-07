@@ -5,36 +5,10 @@ if(isset($_SESSION['type']))
 {
 if($_SESSION['type']==0)
 {
-    echo "<link rel='stylesheet' href='css/request_form.css'>
-    <div><a class='btn' href='logout.php'>Logout</a></div>
-<div><h3>Notifications</h3>
-<div>";
-$query="SELECT * FROM notifications WHERE user_id=?";
-$stmt=$pdo->prepare($query);
-$stmt->execute([$_SESSION['user_id']]);
-$notifications=$stmt->fetchAll();
-$count=$stmt->rowCount();
-if($count==0)
-{
-    echo "<h4>No notifications</h4>";
-}
-else{
-    foreach($notifications as $notification)
-    {
-        echo "
-        
-        <div class='notification'>".$notification['content']." has been finished
-        
-        <!--add <a> element with icon x to delete the notification-->
-        <a href='delete_notification.php?id=".$notification['notification_id']."'><i class='fas fa-times'></i></a>
-
-        </div>";
-        
-
-
-    }}
-echo "</div>
-</div>
+    include "nav.php";
+    
+    
+echo "
     <div class='container'>
         <div class='row'>
             <div class='col-md-6 offset-md-3'>
@@ -67,14 +41,24 @@ echo "</div>
             </div>
         </div>
     </div>";
+    if(isset($_GET['t']))
+    {
+        if($_GET['t']==1)
+        {
+            echo "<script>Swal.fire('Request submitted successfully')</script>";
+        }
+        else{
+            echo "<script>Swal.fire('Request submission failed')</script>";
+        }
+    }
 }
 else{
+    include "nav2.php";
     $query= "SELECT * FROM kurirs WHERE kurir_id=?";
     $stmt=$pdo->prepare($query);
     $stmt->execute([$_SESSION['kurir_id']]);
     $kurir=$stmt->fetch();
-    echo "<div class='container'><div class='row'><div class='col-md-6 offset-md-3'><h1>".$kurir['points']." points</h1></div></div></div>";
-    echo "<div><a class='btn' href='logout.php'>Logout</a></div>
+    echo"
     <div class='container scroll'>
     <div><h3>Available tasks</h3></div>";
     
@@ -103,7 +87,7 @@ echo "</div>
 <div><h3>Current task:</h3></div>
 <div>";
 $query="SELECT * FROM tasks WHERE kurir_id=? AND date=?";
-
+$loc= 'https://www.google.com/maps/dir/Current+Location/';
 $stmt=$pdo -> prepare($query);
 $stmt->execute([$_SESSION['kurir_id'],date("Y-m-d")]);
 $result=$stmt->fetchAll();
@@ -113,16 +97,14 @@ if($count==0)
     echo "<div class='card'>
     <div class='card-body'>
         <h5 class='card-title'>You don't have any tasks today</h5>
-    </div>
-
-    ";
+    </div>";
 }
 else{
-    $loc= 'https://www.google.com/maps/dir/';
+    
     foreach($result as $row)
     {
 
-$nl= str_replace(" ","+","$row['Location']");
+$nl= str_replace(" ","+",$row['Location']);
 $loc=$loc.$nl."/";
    echo "<div class='card'>
         <div class='card-body'>
