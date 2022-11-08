@@ -1,5 +1,4 @@
 <?php
-
 $host = '127.0.0.1';
 $db   = 'kurir';
 $user = 'root';
@@ -20,5 +19,4 @@ try {
 
 
 $salt = 'lerkjth654dgk%$#$#FG';
-
 ?>
