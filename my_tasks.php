@@ -14,7 +14,6 @@ if($_SESSION['type']==0)
     {
         echo 
         
-        
         "<div class='container'><div class='row'><div class='card'>
     <div class='card-body'>
         <h5 class='card-title'>Task description: ".$task['Task_description']."</h5>
