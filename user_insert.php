@@ -2,7 +2,7 @@
 include_once './database.php';
 if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['type'])){
 
-
+//defajnu spremenljivke
 $username = $_POST['username'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
