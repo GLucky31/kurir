@@ -7,6 +7,7 @@
                 <p>Samso Nagaro Like your home work</p>
             </div>
         </div>
+        
         <div class='notifications-item'> <img src='https://img.icons8.com/flat_round/64/000000/vote-badge.png' alt='img'>
             <div class='text'>
                 <h4>John Silvester</h4>
