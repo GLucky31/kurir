@@ -7,7 +7,7 @@
         <div class='col-md-6 offset-md-3'>
             <div class='card'>
                 <div class='card-header'>
-                    <h3>Request Form</h3>
+                    <h2>Request Form</h2>
                 </div>
                 <div class='card-body'>
                     <form action='request_script.php' method='post'>
