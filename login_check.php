@@ -8,7 +8,6 @@ $password = $_POST['password'];
     $stmt1 = $pdo->prepare($query1);
     $stmt1->execute([$email]);    
     $countU = $stmt1->rowCount();
-
     $query2="SELECT * FROM kurirs WHERE email=?";
     $stmt2=$pdo->prepare($query2);
     $stmt2->execute([$email]);
